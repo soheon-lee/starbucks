@@ -19,7 +19,7 @@ class Product(models.Model):
     big_image_url        = models.URLField(max_length = 500)
     product_name         = models.CharField(max_length = 45)
     product_name_english = models.CharField(max_length = 300)
-    main_comment         = models.CharField(max_length = 500)
+    main_comment         = models.CharField(max_length = 550)
     calories             = models.DecimalField(max_digits = 4, decimal_places = 1)
     fat                  = models.DecimalField(max_digits = 4, decimal_places = 1)
     protein              = models.DecimalField(max_digits = 4, decimal_places = 1)
