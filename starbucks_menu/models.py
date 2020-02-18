@@ -26,9 +26,22 @@ class Product(models.Model):
     salt                 = models.DecimalField(max_digits = 4, decimal_places = 1)
     sugar                = models.DecimalField(max_digits = 4, decimal_places = 1)
     caffein              = models.DecimalField(max_digits = 4, decimal_places = 1)
-    allegen_information  = models.CharField(max_length = 100)
     small_image_url      = models.URLField(max_length = 500)
     sub_comment          = models.CharField(max_length = 500)
 
     class Meta:
         db_table = 'products'
+
+class Allergy(models.Model):
+    ingredient = models.CharField(max_length = 45)
+
+    class Meta:
+        db_table = 'allergies'
+
+class ProductAllergy(models.Model):
+    product_id = models.ForeignKey(Product, on_delete = models.CASCADE)
+    allergy_id = models.ForeignKey(Allergy, on_delete = models.CASCADE)
+    ingredient = models.CharField(max_length = 45)
+
+    class Meta:
+        db_table = 'product_allergies'
